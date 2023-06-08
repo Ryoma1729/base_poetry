@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  base_env:
+    container_name: project
+    build:
+      context: .
+      dockerfile: Dockerfile
+    shm_size: "16gb"
+    volumes:
+      - type: bind
+        source: $PWD
+        target: /workspace
+    working_dir: /workspace
+    ports:
+      - "8000:8000"
+    tty: true
